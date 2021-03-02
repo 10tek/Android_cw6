@@ -1,6 +1,7 @@
 package kz.step.cw6
 
 import android.content.Intent
+import android.nfc.NfcAdapter.EXTRA_DATA
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this@MainActivity, AboutActivity::class.java)
 
             // в ключ lastName пихаем текст из второго текстового поля
-            intent.putExtra("lastName", lastName)
+            intent.putExtra(AboutActivity.EXTRA_TEXT_LASTNAME, lastName)
             startActivity(intent)
         }
 

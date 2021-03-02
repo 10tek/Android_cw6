@@ -12,7 +12,9 @@ class AboutActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
         initializeViews()
-        initializeListeners()
+        val lastName = intent.getStringExtra(EXTRA_TEXT_LASTNAME)
+        aboutText?.text = "Над программой работали: $lastName"
+
     }
 
 
@@ -20,10 +22,8 @@ class AboutActivity : AppCompatActivity() {
         aboutText = findViewById(R.id.text_view_about_activity_about)
     }
 
-    private fun initializeListeners() {
-        aboutText?.setOnClickListener {
-
-        }
-
+    companion object {
+        const val EXTRA_TEXT_LASTNAME = "lastName"
     }
+
 }
