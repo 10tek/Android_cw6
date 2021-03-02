@@ -8,21 +8,25 @@ import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
     var aboutButton: Button? = null
+    private val lastName = "Oralbayev"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initializeViews()
-        initializeLiseners()
+        initializeListeners()
     }
 
     private fun initializeViews() {
         aboutButton = findViewById(R.id.button_main_activity_about)
     }
 
-    private fun initializeLiseners() {
+    private fun initializeListeners() {
         aboutButton?.setOnClickListener {
             val intent = Intent(this@MainActivity, AboutActivity::class.java)
+
+            // в ключ lastName пихаем текст из второго текстового поля
+            intent.putExtra("lastName", lastName)
             startActivity(intent)
         }
 
