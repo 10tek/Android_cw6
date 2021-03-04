@@ -10,6 +10,7 @@ import android.widget.Button
 class MainActivity : AppCompatActivity() {
     var aboutButton: Button? = null
     var cameraButton: Button? = null
+    var testerButton: Button? = null
     private val lastName = "Oralbayev"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private fun initializeViews() {
         aboutButton = findViewById(R.id.button_main_activity_about)
         cameraButton = findViewById(R.id.button_main_activity_camera)
+        testerButton = findViewById(R.id.button_main_activity_tester)
     }
 
     private fun initializeListeners() {
@@ -35,6 +37,11 @@ class MainActivity : AppCompatActivity() {
 
         cameraButton?.setOnClickListener {
             val intent = Intent(this@MainActivity, CameraActivity::class.java)
+            startActivity(intent)
+        }
+
+        testerButton?.setOnClickListener {
+            val intent = Intent(this@MainActivity, TesterActivity::class.java)
             startActivity(intent)
         }
     }
